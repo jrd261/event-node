@@ -1,6 +1,6 @@
 'use strict';
 
-const EventNode = require('./src/EventNode');
+const EventNode = require('./dist/event-node');
 
 if (typeof window === 'object') window.EventNode = EventNode;
 
