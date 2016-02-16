@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "/bin/bash ./bin/build.sh",
-    "install": "/bin/bash ./bin/build.sh",
+    "post-install": "/bin/bash ./bin/build.sh",
     "test": "/bin/bash ./bin/test.sh"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.4.5",
     "babel-preset-es2015": "^6.3.13",
