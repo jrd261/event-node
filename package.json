@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "/bin/bash ./bin/build.sh",
-    "post-install": "/bin/bash ./bin/build.sh",
+    "install": "/bin/bash ./bin/build.sh",
     "test": "/bin/bash ./bin/test.sh"
   },
   "author": "",
