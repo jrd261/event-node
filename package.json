@@ -1,6 +1,6 @@
 {
   "name": "event-node",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A generic isomorphic event emitter for javascript.",
   "main": "index.js",
   "scripts": {
