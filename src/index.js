@@ -28,10 +28,10 @@ class EventNode {
   }
 
   trigger () {
-    const args = arguments;
-    if (!this._listeners[arguments[0]]) return Promise.resolve([]);
+    const args = [].splice.call(arguments, 0);
+    if (!this._listeners[args[0]]) return Promise.resolve([]);
     return Promise.all(Object.keys(this._listeners[args[0]]).map(id => {
-      this._listeners[args[0]][id].callback.apply(null, [].splice.call(args, 1));
+      this._listeners[args[0]][id].callback.apply(null, args.slice(1));
     }));
   }
 

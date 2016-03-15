@@ -43,6 +43,7 @@ it('Should be cleared by global clear.', () => {
   events.on('hi', reject);
   events.clear();
   events.trigger('hi').then(() => setTimeout(resolve, 100));
+  return promise;
 });
 
 
@@ -51,4 +52,21 @@ it('Should be cleared by context clear.', () => {
   events.on('yo', () => setTimeout(resolve, 100));
   events.clear('test');
   events.trigger('yo');
+  return promise;
+});
+
+it('Should succeed for multiple listeners.', () => {
+  let n = 0;
+  events.on('update', update => {
+    n += update;
+  }, 'context');
+  events.on('update', update => {
+    n += update;
+  });
+  events.trigger('update', 4);
+  setTimeout(() => {
+    if (n === 8) resolve();
+    else reject(n);
+  }, 500);
+  return promise;
 });
