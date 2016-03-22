@@ -81,5 +81,4 @@ class EventNode {
 
 }
 
-if (typeof window === 'object') window.EventNode = EventNode;
-else module.exports = EventNode;
+module.exports = EventNode;
