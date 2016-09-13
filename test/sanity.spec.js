@@ -77,7 +77,7 @@ it('should clone payload', done => {
     if (payload.a) done(new Error());
     payload.a = true;
     i++;
-    if (i === 1) done();
+    if (i === 2) done();
   }
   events.on('test', callback);
   events.on('test', callback);
