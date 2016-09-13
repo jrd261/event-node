@@ -31,7 +31,13 @@ class EventNode {
     const args = [].splice.call(arguments, 0);
     if (!this._listeners[args[0]]) return Promise.resolve([]);
     return Promise.all(Object.keys(this._listeners[args[0]]).map(id => {
-      this._listeners[args[0]][id].callback.apply(null, args.slice(1));
+      let payload;
+      try {
+        payload = JSON.parse(JSON.stringify(args.slice(1)));
+      } catch (error) {
+        payload = args.slice(1);
+      }
+      this._listeners[args[0]][id].callback.apply(null, payload);
     }));
   }
 

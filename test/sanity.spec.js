@@ -70,3 +70,17 @@ it('Should succeed for multiple listeners.', () => {
   }, 500);
   return promise;
 });
+
+it('should clone payload', done => {
+  let i = 0;
+  function callback (payload) {
+    if (payload.a) done(new Error());
+    payload.a = true;
+    i++;
+    if (i === 1) done();
+  }
+  events.on('test', callback);
+  events.on('test', callback);
+  events.trigger('test', {});
+
+});
