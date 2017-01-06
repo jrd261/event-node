@@ -20,7 +20,7 @@ class EventNode {
   }
 
   on (name, callback, context) {
-    nodes[this.id] = this;
+    nodes[this._id] = this;
     const id = Math.random();
     if (!this._listeners[name]) this._listeners[name] = {};
     this._listeners[name][id] = new Listener(callback, context, () => this._cancelListener(name, id));
@@ -69,7 +69,7 @@ class EventNode {
   }
 
   _pruneNode () {
-    if (Object.keys(this._listeners).length === 0) delete nodes[this.id];
+    if (Object.keys(this._listeners).length === 0) delete nodes[this._id];
   }
 
   _cancelListener (name, id) {
